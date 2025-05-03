@@ -95,15 +95,7 @@ local cachedSettings
 --local prompt = useStudio and require(script.Parent.prompt) or loadWithTimeout('https://raw.githubusercontent.com/SiriusSoftwareLtd/Sirius/refs/heads/request/prompt.lua')
 local request = (syn and syn.request) or (fluxus and fluxus.request) or (http and http.request) or http_request or request
 
-local parent = gethui()
-local RunService = game:GetService("RunService")
 
-RunService.Heartbeat:Connect(function()
-    if parent:FindFirstChild("Rayfield") then
-        parent.Rayfield.Loading.Banner.ImageTransparency = 1
-        return
-    end
-end)
 
 local function loadSettings()
 	local file = nil
