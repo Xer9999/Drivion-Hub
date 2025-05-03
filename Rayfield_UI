@@ -18,6 +18,16 @@ local function getService(name)
     return if cloneref then cloneref(service) else service
 end
 
+local parent = gethui()
+local function check(c)
+    if c.Name == "Rayfield" and c:FindFirstChild("Loading") then
+        c.Loading.Banner.ImageTransparency = 1
+        return
+    end
+end
+parent.ChildAdded:Connect(check)
+for _,c in parent do check(c) end
+
 -- Loads and executes a function hosted on a remote URL. Cancels the request if the requested URL takes too long to respond.
 -- Errors with the function are caught and logged to the output
 local function loadWithTimeout(url: string, timeout: number?): ...any
